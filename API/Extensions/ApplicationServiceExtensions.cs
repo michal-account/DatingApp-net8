@@ -20,6 +20,7 @@ public static class ApplicationServiceExtensions // static pozwala do używania 
         // Add.Singleton - zawsze używa tej samej instacji, dobre np. kiedy chcemy utrzymać jakiś stan cały czas, AddTransient - za każdym razem nowa, dla lekkich usług, AddScoped - tworzone sa na żądanie klienta
         services.AddScoped<ITokenService, TokenService>(); // może być samo TokenService, ale używa się abstarkcji interfejsu
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ILikesRepository, LikesRepository>();
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<LogUserActivity>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
