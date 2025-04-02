@@ -21,6 +21,7 @@ public static class ApplicationServiceExtensions // static pozwala do używania 
         services.AddScoped<ITokenService, TokenService>(); // może być samo TokenService, ale używa się abstarkcji interfejsu
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ILikesRepository, LikesRepository>();
+        services.AddScoped<IMessageRepository, MessageRepository>();
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<LogUserActivity>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
