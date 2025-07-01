@@ -11,6 +11,8 @@ public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, 
 {
     public DbSet<UserLike> Likes { get; set; }
     public DbSet<Message> Messages { get; set; }
+    public DbSet<Group> Groups { get; set; }
+    public DbSet<Connection> Connections { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -21,7 +23,7 @@ public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, 
             .WithOne(u => u.User)
             .HasForeignKey(ur => ur.UserId)
             .IsRequired();
-        
+
         builder.Entity<AppRole>()
             .HasMany(ur => ur.UserRoles)
             .WithOne(u => u.Role)
@@ -29,7 +31,7 @@ public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, 
             .IsRequired();
 
         builder.Entity<UserLike>()
-            .HasKey(k => new {k.SourceUserId, k.TargetUserId});
+            .HasKey(k => new { k.SourceUserId, k.TargetUserId });
 
         builder.Entity<UserLike>()
             .HasOne(s => s.SourceUser)
