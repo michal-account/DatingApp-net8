@@ -15,7 +15,7 @@ public static class ApplicationServiceExtensions // static pozwala do używania 
         services.AddControllers();
         services.AddDbContext<DataContext>(opt =>
         {
-            opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         });
         services.AddCors();
         // Add.Singleton - zawsze używa tej samej instacji, dobre np. kiedy chcemy utrzymać jakiś stan cały czas, AddTransient - za każdym razem nowa, dla lekkich usług, AddScoped - tworzone sa na żądanie klienta
